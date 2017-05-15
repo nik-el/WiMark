@@ -1,17 +1,28 @@
 /* Создания профиля из localStorage */
-if (localData) {
-name = data.name;
-surname = data.surname;
-photoUrl = data.photo;
-}
+var userProfile = document.querySelector('.user');
+
 
 function createProfile() {
-var nameProfile = document.querySelector('.user__name');
-var surnameProfile = document.querySelector('.user__surname');
-var photoProfile = document.querySelector('.user__photo');
+if(userProfile){
+  if(localData){
+  /* Проверяем сохраненные данные*/
+  name = data.name;
+  surname = data.surname;
+  photoUrl = data.photo;
 
-nameProfile.innerHTML = name;
-surnameProfile.innerHTML = surname;
-photoProfile.src = photoUrl;
+  /* Переносим данные на страницу */
+  var nameProfile = document.querySelector('.user__name');
+  var surnameProfile = document.querySelector('.user__surname');
+  var photoProfile = document.querySelector('.user__photo');
+  nameProfile.innerHTML = name;
+  surnameProfile.innerHTML = surname;
+  photoProfile.src = photoUrl;
+  }else {
+  alert('Неудачная попытка создания профиля');
+  window.location.href = "/index.html";
+  return;
+  }
 }
+}
+
 createProfile();

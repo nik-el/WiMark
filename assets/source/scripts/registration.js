@@ -19,15 +19,41 @@ class Users {
 
 /*  */
 addUser && addUser.addEventListener('click', function() {
-  name = document.querySelector('.registration__field--name').value;
-  surname = document.querySelector('.registration__field--surname').value;
-  photoUrl = document.querySelector('.registration__field--photo').files[0];
+  var nameField = document.querySelector('.registration__field--name');
+  name = nameField.value;
+  var surnameField = document.querySelector('.registration__field--surname');
+  surname = surnameField.value;
+  var photoFiled = document.querySelector('.registration__field--photo');
+  photoUrl = photoFiled.files[0];
+  var addPhoto = document.querySelector('.registration__photo-button');
 
   /* Проверям введенные данные на пустоту */
-  if(!name || !surname || !photoUrl){
+  if(!name){
+  nameField.style.borderColor = 'rgba(255, 0, 0, .5)';
   errorMessage.innerHTML = 'Все поля обязательны к заполнению. ';
   return;
+  } else {
+  errorMessage.innerHTML = '';
+  nameField.style.borderColor = 'rgba(0, 0, 0, .2)';
   }
+  if(!surname){
+  surnameField.style.borderColor = 'rgba(255, 0, 0, .5)';
+  errorMessage.innerHTML = 'Все поля обязательны к заполнению. ';
+  return;
+  } else {
+  errorMessage.innerHTML = '';
+  surnameField.style.borderColor = 'rgba(0, 0, 0, .2)';
+  }
+  if(!photoUrl){
+  addPhoto.style.backgroundColor = 'rgba(255, 0, 0, .5)';
+  errorMessage.innerHTML = 'Добавьте фото';
+  return;
+} else{
+  errorMessage.innerHTML = '';
+  addPhoto.style.backgroundColor = 'rgba(0,0,0,.2)';
+}
+
+
   /* Проверяем тип файла */
   if((photoUrl.type != 'image/png') && (photoUrl.type != 'image/jpeg')){
   errorMessage.innerHTML = 'Доступный формат фото: jpg и png. ';
@@ -49,4 +75,10 @@ addUser && addUser.addEventListener('click', function() {
     /* Добавление в localStorage */
     localStorage.setItem('user', JSON.stringify(user));
   }
+
+
+  window.location.href = "/profile.html";
+  nameField.value = '';
+  surnameField.value = '';
+  addPhoto.innerHTML = 'Добавить фото';
 });
