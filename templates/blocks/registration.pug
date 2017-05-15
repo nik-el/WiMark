@@ -4,9 +4,9 @@ main.form
     label.registration__label.registration__label--photo
       svg(width='60' height='60').registration__icon.registration__icon--photo
         use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href="#icon-photo")
-      div.registration__photo-button 
+      div.registration__photo-button
         span.registration__photo-title Загрузить фото
-      input(type='file' onchange="this.previousSibling.previousSibling.innerHTML = this.files[0].name").registration__field.registration__field--photo
+      input(type='file' onchange="this.previousSibling.innerHTML = this.files[0].name").registration__field.registration__field--photo
     label(for="name-field").registration__label 
       svg(width='30' height='30').registration__icon.registration__icon--profile
         use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href="#icon-profile")

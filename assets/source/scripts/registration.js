@@ -74,6 +74,8 @@ function addUserFunc() {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
+
+
   window.location.href = "profile.html";
   nameField.value = '';
   surnameField.value = '';
