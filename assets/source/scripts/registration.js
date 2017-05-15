@@ -30,19 +30,19 @@ function addUserFunc() {
   /* Проверям введенные данные на пустоту */
   if(!name){
   nameField.style.borderColor = 'rgba(255, 0, 0, .5)';
-  errorMessage.innerHTML = 'Все поля обязательны к заполнению. ';
+  errorMessage.innerHTML = 'Все поля обязательны к заполнению';
   return;
   } else {
   errorMessage.innerHTML = '';
-  nameField.style.borderColor = 'rgba(0, 0, 0, .2)';
+  nameField.style.borderColor = '';
   }
   if(!surname){
   surnameField.style.borderColor = 'rgba(255, 0, 0, .5)';
-  errorMessage.innerHTML = 'Все поля обязательны к заполнению. ';
+  errorMessage.innerHTML = 'Все поля обязательны к заполнению';
   return;
   } else {
   errorMessage.innerHTML = '';
-  surnameField.style.borderColor = 'rgba(0, 0, 0, .2)';
+  surnameField.style.borderColor = '';
   }
   if(!photoUrl){
   addPhoto.style.backgroundColor = 'rgba(255, 0, 0, .5)';
@@ -50,17 +50,17 @@ function addUserFunc() {
   return;
 } else{
   errorMessage.innerHTML = '';
-  addPhoto.style.backgroundColor = 'rgba(0,0,0,.2)';
+  addPhoto.style.backgroundColor = '';
 }
 
   /* Проверяем тип файла */
   if((photoUrl.type != 'image/png') && (photoUrl.type != 'image/jpeg')){
-  errorMessage.innerHTML = 'Доступный формат фото: jpg и png. ';
+  errorMessage.innerHTML = 'Доступный формат фото: jpg и png';
   return;
   }
   /* Проверяем размер файла */
   if(photoUrl.size > 512000) {
-    errorMessage.innerHTML = 'Максимальные размер файлы 500 КБ ';
+    errorMessage.innerHTML = 'Максимальные размер файлы 500 КБ';
     return;
   }
 

@@ -4,33 +4,39 @@
     <title></title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/css/style.css?v=ec73e0a4c3496691a5e6526920a19576" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
   </head>
   <body>
     <svg display="none"> 
       <symbol viewBox="0 0 60 60" id="icon-profile">
         <path d="M48.014,42.889l-9.553-4.776C37.56,37.662,37,36.756,37,35.748v-3.381c0.229-0.28,0.47-0.599,0.719-0.951c1.239-1.75,2.232-3.698,2.954-5.799C42.084,24.97,43,23.575,43,22v-4c0-0.963-0.36-1.896-1-2.625v-5.319c0.056-0.55,0.276-3.824-2.092-6.525C37.854,1.188,34.521,0,30,0s-7.854,1.188-9.908,3.53C17.724,6.231,17.944,9.506,18,10.056v5.319c-0.64,0.729-1,1.662-1,2.625v4c0,1.217,0.553,2.352,1.497,3.109c0.916,3.627,2.833,6.36,3.503,7.237v3.309c0,0.968-0.528,1.856-1.377,2.32l-8.921,4.866C8.801,44.424,7,47.458,7,50.762V54c0,4.746,15.045,6,23,6s23-1.254,23-6v-3.043C53,47.519,51.089,44.427,48.014,42.889z M51,54c0,1.357-7.412,4-21,4S9,55.357,9,54v-3.238c0-2.571,1.402-4.934,3.659-6.164l8.921-4.866C23.073,38.917,24,37.354,24,35.655v-4.019l-0.233-0.278c-0.024-0.029-2.475-2.994-3.41-7.065l-0.091-0.396l-0.341-0.22C19.346,23.303,19,22.676,19,22v-4c0-0.561,0.238-1.084,0.67-1.475L20,16.228V10l-0.009-0.131c-0.003-0.027-0.343-2.799,1.605-5.021C23.253,2.958,26.081,2,30,2c3.905,0,6.727,0.951,8.386,2.828c1.947,2.201,1.625,5.017,1.623,5.041L40,16.228l0.33,0.298C40.762,16.916,41,17.439,41,18v4c0,0.873-0.572,1.637-1.422,1.899l-0.498,0.153l-0.16,0.495c-0.669,2.081-1.622,4.003-2.834,5.713c-0.297,0.421-0.586,0.794-0.837,1.079L35,31.623v4.125c0,1.77,0.983,3.361,2.566,4.153l9.553,4.776C49.513,45.874,51,48.28,51,50.957V54z" fill="#cccccc"></path>
       </symbol>
+      <symbol viewBox="0 0 333.668 333.668" id="icon-photo">
+        <path d="M295.101,298.649H38.561C17.295,298.649,0,281.354,0,260.088V103.703c0-21.266,17.295-38.561,38.561-38.561h52.347l4.582-15.457c1.87-8.458,9.602-14.666,18.696-14.666h105.297c8.837,0,16.658,6.176,18.728,14.743l0.122,0.527l4.177,14.852h52.597c21.266,0,38.561,17.295,38.561,38.561v156.384C333.662,281.354,316.361,298.649,295.101,298.649z M38.561,77.996c-14.178,0-25.707,11.53-25.707,25.707v156.384c0,14.178,11.53,25.707,25.707,25.707h256.54c14.178,0,25.707-11.53,25.707-25.707V103.703c0-14.178-11.53-25.707-25.707-25.707h-62.327l-7.037-25.097c-0.649-2.918-3.278-5.032-6.26-5.032H114.179c-3.027,0-5.598,2.069-6.26,5.039l-7.429,25.09H38.561z M166.841,259.798c-44.981,0-81.576-36.588-81.576-81.563c0-44.981,36.594-81.569,81.576-81.569c44.969,0,81.557,36.594,81.557,81.569C248.397,223.204,211.809,259.798,166.841,259.798zM166.841,109.513c-37.893,0-68.722,30.823-68.722,68.716s30.83,68.709,68.722,68.709c37.886,0,68.703-30.823,68.703-68.709C235.543,140.336,204.72,109.513,166.841,109.513z M286.804,101.852c-6.555,0-11.858,5.315-11.858,11.858c0,6.549,5.302,11.857,11.858,11.857c6.549,0,11.851-5.309,11.851-11.857C298.649,107.167,293.346,101.852,286.804,101.852z" fill="#000000"></path>
+      </symbol>
     </svg>
     <main class="form">
       <div class="registration">
         <h1 class="registration__title">Регистрация</h1>
-        <label class="registration__label" for="name-field">Имя
-          <svg class="registration__icon" width="30" height="30">
+        <label class="registration__label registration__label--photo">
+          <svg class="registration__icon registration__icon--photo" width="60" height="60">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-photo"></use>
+          </svg>
+          <div class="registration__photo-button"> <span class="registration__photo-title">Загрузить фото</span></div>
+          <input class="registration__field registration__field--photo" type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.files[0].name">
+        </label>
+        <label class="registration__label" for="name-field"> 
+          <svg class="registration__icon registration__icon--profile" width="30" height="30">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-profile"></use>
           </svg>
         </label>
-        <input class="registration__field registration__field--name" type="text" placeholder="Введите имя" id="name-field">
-        <label class="registration__label" for="surname-field">Фамилия</label>
-        <input class="registration__field registration__field--surname" type="text" placeholder="Введите фамилию" id="surname-field">
-        <label class="registration__label registration__label--photo">
-          <div class="registration__photo-button button">Добавить фото</div>
-          <input class="registration__field registration__field--photo" type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.files[0].name">
-        </label>
+        <input class="registration__field registration__field--name" type="text" placeholder="Имя" id="name-field">
+        <label class="registration__label" for="surname-field"></label>
+        <input class="registration__field registration__field--surname" type="text" placeholder="Фамилия" id="surname-field">
         <button class="registration__button button js-adduser-btn">Зарегистрировать</button>
         <p class="registration__error js-error-message"></p>
       </div>
     </main>
-    <script src="assets/js/scripts.js?v=440ad68bd659d10cf38973daebb6fa9d"></script>
+    <script src="assets/js/scripts.js"></script>
   </body>
 </html>

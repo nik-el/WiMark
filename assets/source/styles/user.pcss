@@ -23,15 +23,17 @@
   &__surname {
     text-align: center;
     font-size: 1.5rem;
-    margin-bottom: 20px;
-
+    margin-bottom: 35px;
   }
   &__photo{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+
     display: block;
     margin: 0 auto;
     margin-bottom: 20px;
-    width: 200px;
-    max-width: 100%;
+
     border-radius: 100%;
   }
 
@@ -39,5 +41,15 @@
     position: absolute;
     left:0;
     top: 0;
+  }
+
+  &__done-image{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 8px;
+  }
+  &__done-text{
+    font-size: 20px;
+    text-align: center;
   }
 }

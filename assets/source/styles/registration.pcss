@@ -1,9 +1,11 @@
 .registration{
   width: 400px;
+  height: 500px;
   background-color: #fff;
   padding: 50px;
 
   &__title{
+    display: none;
     margin-top: 25px;
     margin-bottom: 50px;
     text-align: center;
@@ -26,10 +28,11 @@
       margin: 0;
       margin-top: 10px;
 
+
       &::after{
         content: 'jpg/png, 500кб';
         color: #999;
-        font-size: .8rem;
+        font-size: .7rem;
         position: absolute;
         right: 0;
         cursor: default;
@@ -45,7 +48,7 @@
 
     padding: 0 15px;
     padding-right: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 
     border-color: rgba(0,0,0,.2);
     border-style: solid;
@@ -58,27 +61,55 @@
       margin: 0px;
       height: 1px;
     }
-  }
 
-  &__photo-button{
-    height: 50px;
-    line-height: 50px;
-    background-color: rgba(69,172,203,.5);
-    overflow: hidden;
-    transition: background 0.2s;
-    &:hover{
-    background-color: rgba(69,172,203,.9);
+    &:focus{
+      border-color: #4a90e2;
     }
   }
 
-  &__button{
-    padding: 20px;
-    margin-bottom: 30px;
-    margin-top: 50px;
-    background-color: rgba(108,189,146,.6);
+  &__photo-button{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 11px;
+    background-color: rgba(239,239,239,1);
+    color: #000;
+    overflow: hidden;
     transition: background 0.2s;
     &:hover{
-    background-color: rgba(108,189,146,1);
+    background-color: rgba(239,239,239,.5);
+    }
+  }
+
+  &__photo-title{
+    position: relative;
+    top: 80px;
+
+  }
+
+  &__button{
+    padding: 10px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    background-color: #4990e2;
+    transition: background 0.2s;
+
+    width: 100%;
+    border-radius: 5px;
+    border: 0;
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover{
+    background-color: #3174c3;
     }
 
   }
@@ -90,20 +121,18 @@
 
   &__icon{
     position: absolute;
-    right: 10px;
-    top: 40px;
+    z-index: 10;
+    &--profile{
+      top:20px;
+      right: 10px;
+    }
+    &--photo{
+      top: 35px;
+      left: 120px;
+    }
   }
 }
 
 .button{
-  width: 100%;
-  border-radius: 5px;
-  border: 0;
-  letter-spacing: 1px;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 300;
-  text-align: center;
-  text-transform: uppercase;
-  cursor: pointer;
+
 }

@@ -1,14 +1,17 @@
 main.form
   div.registration
     h1.registration__title Регистрация
-    label(for="name-field").registration__label Имя
-      svg(width='30' height='30').registration__icon
-        use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href="#icon-profile")
-    input(type='text' placeholder='Введите имя' id='name-field').registration__field.registration__field--name
-    label(for="surname-field").registration__label Фамилия
-    input(type='text' placeholder='Введите фамилию' id='surname-field').registration__field.registration__field--surname
     label.registration__label.registration__label--photo
-      div.registration__photo-button.button Добавить фото
+      svg(width='60' height='60').registration__icon.registration__icon--photo
+        use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href="#icon-photo")
+      div.registration__photo-button 
+        span.registration__photo-title Загрузить фото
       input(type='file' onchange="this.previousSibling.previousSibling.innerHTML = this.files[0].name").registration__field.registration__field--photo
+    label(for="name-field").registration__label 
+      svg(width='30' height='30').registration__icon.registration__icon--profile
+        use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href="#icon-profile")
+    input(type='text' placeholder='Имя' id='name-field').registration__field.registration__field--name
+    label(for="surname-field").registration__label
+    input(type='text' placeholder='Фамилия' id='surname-field').registration__field.registration__field--surname
     button.registration__button.button.js-adduser-btn Зарегистрировать
     p.registration__error.js-error-message
