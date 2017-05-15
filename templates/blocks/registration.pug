@@ -1,6 +1,10 @@
 main.registration
   h1.registration__title Регистрация пользователя
-  input(type='text' placeholder='Введите имя').registration__field.registration__filed--name
-  input(type='text' placeholder='Введите фамилию').registration__field.registration__filed--surname
-  input(type='text' placeholder='Добавьте ссылку на фото').registration__field.registration__filed--photo
-  button.registration__button Зарегистрировать
+  label(for="name-field").registration__label Имя
+  input(type='text' placeholder='Введите имя' id='name-field').registration__field.registration__field--name
+  label(for="surname-field").registration__label Фамилия
+  input(type='text' placeholder='Введите фамилию' id='surname-field').registration__field.registration__field--surname
+  label(for="photo-field").registration__label Фото
+  input(type='file').registration__field.registration__field--photo
+  button.registration__button.js-adduser Зарегистрировать
+  p.registration__error 

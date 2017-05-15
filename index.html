@@ -4,16 +4,20 @@
     <title></title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/css/style.css?v=c787b5d4526e5c27999ada20d2fdc991" rel="stylesheet">
+    <link href="assets/css/style.css?v=2251d22357c40626f098fe6fd0ad6a2b" rel="stylesheet">
   </head>
   <body>
     <main class="registration">
       <h1 class="registration__title">Регистрация пользователя</h1>
-      <input class="registration__field registration__filed--name" type="text" placeholder="Введите имя">
-      <input class="registration__field registration__filed--surname" type="text" placeholder="Введите фамилию">
-      <input class="registration__field registration__filed--photo" type="text" placeholder="Добавьте ссылку на фото">
-      <button class="registration__button">Зарегистрировать</button>
+      <label class="registration__label" for="name-field">Имя</label>
+      <input class="registration__field registration__field--name" type="text" placeholder="Введите имя" id="name-field">
+      <label class="registration__label" for="surname-field">Фамилия</label>
+      <input class="registration__field registration__field--surname" type="text" placeholder="Введите фамилию" id="surname-field">
+      <label class="registration__label" for="photo-field">Фото</label>
+      <input class="registration__field registration__field--photo" type="file">
+      <button class="registration__button js-adduser">Зарегистрировать</button>
+      <p class="registration__error"> </p>
     </main>
-    <script src="assets/js/scripts.js?v=b757ad9e3e38d806858b6cc009800009"></script>
+    <script src="assets/js/scripts.js?v=8ef2ae39b07a640815a33cfb056da56c"></script>
   </body>
 </html>
