@@ -17,8 +17,8 @@ class Users {
   }
 }
 
-/*  */
-addUser && addUser.addEventListener('click', function() {
+/* Функция добавления пользователяи в localStorage */
+function addUserFunc() {
   var nameField = document.querySelector('.registration__field--name');
   name = nameField.value;
   var surnameField = document.querySelector('.registration__field--surname');
@@ -53,7 +53,6 @@ addUser && addUser.addEventListener('click', function() {
   addPhoto.style.backgroundColor = 'rgba(0,0,0,.2)';
 }
 
-
   /* Проверяем тип файла */
   if((photoUrl.type != 'image/png') && (photoUrl.type != 'image/jpeg')){
   errorMessage.innerHTML = 'Доступный формат фото: jpg и png. ';
@@ -68,7 +67,6 @@ addUser && addUser.addEventListener('click', function() {
   /* Перевод изображения в base64 */
   var reader = new FileReader();
   reader.readAsDataURL(photoUrl);
-
   reader.onloadend = function () {
     photo = reader.result;
     var user = new Users(name, surname, photo);
@@ -76,9 +74,20 @@ addUser && addUser.addEventListener('click', function() {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-
   window.location.href = "/profile.html";
   nameField.value = '';
   surnameField.value = '';
   addPhoto.innerHTML = 'Добавить фото';
+}
+
+/* Вызов функции по клику  */
+addUser && addUser.addEventListener('click', function addUser() {
+  addUserFunc();
+});
+
+/* Вызов функции по нажатию Enter  */
+window.addEventListener('keydown', function() {
+  if (event.keyCode == 13){
+    addUserFunc();
+  }
 });

@@ -17,6 +17,7 @@ if(userProfile){
   nameProfile.innerHTML = name;
   surnameProfile.innerHTML = surname;
   photoProfile.src = photoUrl;
+  photoProfile.alt = `Фото ${name} ${surname}`
   }else {
   alert('Неудачная попытка создания профиля');
   window.location.href = "/index.html";

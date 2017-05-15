@@ -1,10 +1,14 @@
-main.registration
-  h1.registration__title Регистрация пользователя
-  label(for="name-field").registration__label Имя
-  input(type='text' placeholder='Введите имя' id='name-field').registration__field.registration__field--name
-  label(for="surname-field").registration__label Фамилия
-  input(type='text' placeholder='Введите фамилию' id='surname-field').registration__field.registration__field--surname
-  label(for="photo-field").registration__label Фото
-  input(type='file').registration__field.registration__field--photo
-  button.registration__button.js-adduser-btn Зарегистрировать
-  p.registration__error.js-error-message
+main.form
+  div.registration
+    h1.registration__title Регистрация
+    label(for="name-field").registration__label Имя
+      svg(width='30' height='30').registration__icon
+        use(xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href="#icon-profile")
+    input(type='text' placeholder='Введите имя' id='name-field').registration__field.registration__field--name
+    label(for="surname-field").registration__label Фамилия
+    input(type='text' placeholder='Введите фамилию' id='surname-field').registration__field.registration__field--surname
+    label.registration__label.registration__label--photo
+      div.registration__photo-button.button Добавить фото
+      input(type='file' onchange="this.previousSibling.previousSibling.innerHTML = this.files[0].name").registration__field.registration__field--photo
+    button.registration__button.button.js-adduser-btn Зарегистрировать
+    p.registration__error.js-error-message

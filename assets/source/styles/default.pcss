@@ -24,12 +24,21 @@ html {
 }
 
 body {
-  font-family: $helvetica;
+  font-family: Arial;
   font-size: 14px;
   line-height: 20px;
+  height: 100vh;
+
+  background-color: #eeeeee;
 }
 
 /* Ссылки без дефолтного подчёркивания */
 a {
+  color: #333;
   text-decoration: none;
 }
+
+input[type="text"]::-webkit-input-placeholder { color: #ddd; font-weight: 300;}
+input[type="text"]:-ms-input-placeholder { color: #ddd; font-weight: 300; }
+input[type="text"]::-ms-input-placeholder { color: #ddd; font-weight: 300; }
+input[type="text"]::placeholder { color: #ddd; font-weight: 300; }
