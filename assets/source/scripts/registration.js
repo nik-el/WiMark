@@ -74,7 +74,7 @@ function addUserFunc() {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  window.location.href = "/profile.html";
+  window.location.href = "profile.html";
   nameField.value = '';
   surnameField.value = '';
   addPhoto.innerHTML = 'Добавить фото';
