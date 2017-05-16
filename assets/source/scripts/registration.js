@@ -1,4 +1,4 @@
-var name, surname, photo, photoUrl;
+var name, surname, photo;
 var data = {};
 var addUser = document.querySelector('.js-adduser-btn');
 var errorMessage = document.querySelector('.js-error-message');
@@ -17,14 +17,32 @@ class Users {
   }
 }
 
+function previewFile(){
+var photoFile = document.querySelector('.registration__field--photo').files[0];
+var photoTitle = document.querySelector('.registration__photo-title');
+var photoIcon = document.querySelector('.registration__icon--photo');
+var photoLabel = document.querySelector('.registration__label--photo');
+var addPhoto = document.querySelector('.registration__photo-button');
+var reader = new FileReader();
+reader.onloadend = function () {
+photo = reader.result;
+addPhoto.style.backgroundImage = `url('${photo}')`;
+photoTitle.innerHTML = '';
+photoLabel.removeChild(photoIcon);
+}
+if(photoFile){
+  reader.readAsDataURL(photoFile);
+}
+}
+
+
 /* Функция добавления пользователяи в localStorage */
 function addUserFunc() {
   var nameField = document.querySelector('.registration__field--name');
   name = nameField.value;
   var surnameField = document.querySelector('.registration__field--surname');
   surname = surnameField.value;
-  var photoFiled = document.querySelector('.registration__field--photo');
-  photoUrl = photoFiled.files[0];
+  var photoUrl = document.querySelector('.registration__field--photo').files[0];
   var addPhoto = document.querySelector('.registration__photo-button');
 
   /* Проверям введенные данные на пустоту */
@@ -64,22 +82,15 @@ function addUserFunc() {
     return;
   }
 
+
   /* Перевод изображения в base64 */
-  var reader = new FileReader();
-  reader.readAsDataURL(photoUrl);
-  reader.onloadend = function () {
-    photo = reader.result;
-    var user = new Users(name, surname, photo);
-    /* Добавление в localStorage */
-    localStorage.setItem('user', JSON.stringify(user));
-  }
-
-
+  var user = new Users(name, surname, photo);
+  /* Добавление в localStorage */
+  localStorage.setItem('user', JSON.stringify(user));
 
   window.location.href = "profile.html";
   nameField.value = '';
   surnameField.value = '';
-  addPhoto.innerHTML = 'Добавить фото';
 }
 
 /* Вызов функции по клику  */

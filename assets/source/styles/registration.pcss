@@ -70,19 +70,24 @@
 
   &__photo-button{
     position: relative;
-    height: 150px;
+
     width: 150px;
+    height: 150px;
     margin: 0 auto;
     border-radius: 100%;
     line-height: 50px;
     text-align: center;
     font-size: 11px;
     background-color: rgba(239,239,239,1);
+    background-position:center;
+    background-clip: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #000;
     overflow: hidden;
-    transition: background 0.2s;
+    transition: opacity 0.2s;
     &:hover{
-    background-color: rgba(239,239,239,.5);
+    opacity: .7;
     }
   }
 
@@ -122,7 +127,7 @@
 
   &__icon{
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     &--profile{
       top:20px;
       right: 10px;
@@ -130,6 +135,9 @@
     &--photo{
       top: 40px;
       left: 120px;
+      &:hover + .registration__photo-button{
+        opacity: .7;
+      }
     }
   }
 }

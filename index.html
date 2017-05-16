@@ -4,7 +4,7 @@
     <title></title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css?v=c6721f8e460753ad7909b70a781e22f7" rel="stylesheet">
   </head>
   <body>
     <svg display="none"> 
@@ -23,7 +23,7 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-photo"></use>
           </svg>
           <div class="registration__photo-button"><span class="registration__photo-title">Загрузить фото</span></div>
-          <input class="registration__field registration__field--photo" type="file" onchange="this.previousSibling.innerHTML = this.files[0].name">
+          <input class="registration__field registration__field--photo" type="file" onchange="previewFile()">
         </label>
         <label class="registration__label" for="name-field"> 
           <svg class="registration__icon registration__icon--profile" width="30" height="30">
@@ -37,6 +37,7 @@
         <p class="registration__error js-error-message"></p>
       </div>
     </main>
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/source/scripts/registration.js?v=ac28ffa7ebb90b7bca00c4cbf4e68fe9"></script>
+    <script src="assets/source/scripts/user.js?v=4143578842b26555ad25c31decd4c72f"></script>
   </body>
 </html>
