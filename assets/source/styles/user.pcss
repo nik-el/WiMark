@@ -2,14 +2,14 @@
   width: 400px;
   background-color: #fff;
   padding: 50px;
-  padding-top: 10px;
+  padding-top: 20px;
 
 
   &__link{
     display: inline-block;
     margin: 0 auto;
     margin-top: 50px;
-    font-size: .8rem;
+    font-size: 1.2rem;
     border-bottom: 1px dashed #000;
     &:hover{
       border-bottom: 1px solid #000;
@@ -19,12 +19,12 @@
   &__name {
     position: relative;
     text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
   }
   &__surname {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     margin-bottom: 35px;
   }
   &__photo{
@@ -37,6 +37,13 @@
     margin-bottom: 20px;
 
     border-radius: 100%;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
   }
 
   &__icon{
@@ -49,9 +56,16 @@
     display: block;
     margin: 0 auto;
     margin-bottom: 8px;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
   }
   &__done-text{
-    font-size: 20px;
+    font-size: 2rem;
     text-align: center;
   }
 }
