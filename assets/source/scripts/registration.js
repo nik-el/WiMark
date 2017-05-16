@@ -1,4 +1,4 @@
-var name, surname, photo;
+var name, surname, photo, photoFile;
 var data = {};
 var addUser = document.querySelector('.js-adduser-btn');
 var errorMessage = document.querySelector('.js-error-message');
@@ -17,12 +17,14 @@ class Users {
   }
 }
 
+/* Перевод фото в base64 и подгрузка превью */
 function previewFile(){
-var photoFile = document.querySelector('.registration__field--photo').files[0];
 var photoTitle = document.querySelector('.registration__photo-title');
 var photoIcon = document.querySelector('.registration__icon--photo');
 var photoLabel = document.querySelector('.registration__label--photo');
 var addPhoto = document.querySelector('.registration__photo-button');
+photoFile = document.querySelector('.registration__field--photo').files[0];
+
 var reader = new FileReader();
 reader.onloadend = function () {
 photo = reader.result;
@@ -32,7 +34,11 @@ photoLabel.removeChild(photoIcon);
 }
 if(photoFile){
   reader.readAsDataURL(photoFile);
+} else {
+  addPhoto.style.backgroundImage = '';
+  photoTitle.innerHTML = 'Загрузить фото';
 }
+document.querySelector('.registration__field--photo').value = '';
 }
 
 
@@ -42,7 +48,6 @@ function addUserFunc() {
   name = nameField.value;
   var surnameField = document.querySelector('.registration__field--surname');
   surname = surnameField.value;
-  var photoUrl = document.querySelector('.registration__field--photo').files[0];
   var addPhoto = document.querySelector('.registration__photo-button');
 
   /* Проверям введенные данные на пустоту */
@@ -62,9 +67,8 @@ function addUserFunc() {
   errorMessage.innerHTML = '';
   surnameField.style.borderColor = '';
   }
-  if(!photoUrl){
+  if(!photoFile){
   addPhoto.style.backgroundColor = 'rgba(255, 0, 0, .5)';
-  errorMessage.innerHTML = 'Добавьте фото';
   return;
 } else{
   errorMessage.innerHTML = '';
@@ -72,22 +76,21 @@ function addUserFunc() {
 }
 
   /* Проверяем тип файла */
-  if((photoUrl.type != 'image/png') && (photoUrl.type != 'image/jpeg')){
+  if((photoFile.type != 'image/png') && (photoFile.type != 'image/jpeg')){
   errorMessage.innerHTML = 'Доступный формат фото: jpg и png';
   return;
   }
   /* Проверяем размер файла */
-  if(photoUrl.size > 512000) {
+  if(photoFile.size > 512000) {
     errorMessage.innerHTML = 'Максимальные размер файлы 500 КБ';
     return;
   }
 
-
-  /* Перевод изображения в base64 */
+  /* Создания объекта user и добавление в localStorage */
   var user = new Users(name, surname, photo);
-  /* Добавление в localStorage */
   localStorage.setItem('user', JSON.stringify(user));
 
+  /* Переходим к профилю и очищаем форму */
   window.location.href = "profile.html";
   nameField.value = '';
   surnameField.value = '';

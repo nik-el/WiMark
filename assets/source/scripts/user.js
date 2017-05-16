@@ -1,14 +1,13 @@
 /* Создания профиля из localStorage */
 var userProfile = document.querySelector('.user');
 
-
 function createProfile() {
 if(userProfile){
   if(localData){
   /* Проверяем сохраненные данные*/
   name = data.name;
   surname = data.surname;
-  photoUrl = data.photo;
+  photoFile = data.photo;
 
   /* Переносим данные на страницу */
   var nameProfile = document.querySelector('.user__name');
@@ -16,8 +15,8 @@ if(userProfile){
   var photoProfile = document.querySelector('.user__photo');
   nameProfile.innerHTML = name;
   surnameProfile.innerHTML = surname;
-  photoProfile.src = photoUrl;
-  photoProfile.alt = `Фото ${name} ${surname}`
+  photoProfile.src = photoFile;
+  photoProfile.alt = `Фото ${name} ${surname}`;
   }else {
   alert('Неудачная попытка создания профиля');
   window.location.href = "/index.html";
